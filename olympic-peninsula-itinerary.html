@@ -4,374 +4,132 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Olympic Peninsula — August 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --forest: #1a3a2a;
-    --moss: #2d5a3d;
-    --sage: #4a7c59;
-    --mist: #8fb8a0;
-    --fog: #c8ddd0;
-    --snow: #f0f5f2;
-    --stone: #6b7c73;
-    --ocean: #2a4a6b;
-    --sand: #e8dcc8;
-    --coral: #c04a2a;
-    --amber: #b87518;
-    --purple: #4a3a7a;
+    --forest: #0f2318;
+    --moss: #1e3d2a;
+    --sage: #3a6647;
+    --mist: #7aaa8a;
+    --fog: #b8d4c0;
+    --snow: #f2f5f0;
+    --stone: #4a5e52;
+    --ocean: #1e3a52;
+    --accent: #8aaa6a;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--snow);
-    color: var(--forest);
-    min-height: 100vh;
-  }
+  body { font-family: 'Jost', sans-serif; background: #0f2318; color: var(--snow); min-height: 100vh; font-size: 16px; }
 
   /* HERO */
-  .hero {
-    background: var(--forest);
-    padding: 60px 24px 50px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a7c59' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.4;
-  }
-  .hero-inner {
-    max-width: 720px;
-    margin: 0 auto;
-    position: relative;
-  }
-  .hero-tag {
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--mist);
-    border: 1px solid var(--sage);
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 6vw, 52px);
-    color: var(--snow);
-    line-height: 1.1;
-    margin-bottom: 12px;
-  }
-  .hero-sub {
-    color: var(--fog);
-    font-size: 15px;
-    font-weight: 300;
-    margin-bottom: 32px;
-  }
-  .hero-stats {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-  .hero-stat-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    color: var(--snow);
-  }
-  .hero-stat-lbl {
-    font-size: 11px;
-    color: var(--mist);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 2px;
-  }
+  .hero { position: relative; height: 100vh; min-height: 600px; max-height: 860px; overflow: hidden; display: flex; align-items: center; }
+  .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=85&fit=crop') center/cover no-repeat; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,18,12,0.3) 0%, rgba(8,18,12,0.5) 50%, rgba(8,18,12,0.85) 100%); }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; width: 100%; padding: 80px 32px 32px; }
+  .hero-eyebrow { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(56px, 11vw, 104px); font-weight: 400; line-height: 0.9; color: #fff; margin-bottom: 24px; }
+  .hero h1 em { font-style: italic; color: var(--fog); }
+  .hero-sub { font-size: 17px; font-weight: 300; color: var(--fog); letter-spacing: 0.04em; margin-bottom: 40px; }
+  .hero-pills { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-pill { padding: 8px 18px; border: 1px solid rgba(138,170,106,0.45); border-radius: 40px; font-size: 13px; color: var(--accent); letter-spacing: 0.06em; }
 
-  /* NAV TABS */
-  .nav-wrap {
-    background: var(--forest);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-scroll {
-    max-width: 720px;
-    margin: 0 auto;
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
+  /* NAV */
+  .nav-wrap { background: var(--forest); border-bottom: 1px solid rgba(255,255,255,0.07); position: sticky; top: 0; z-index: 100; }
+  .nav-scroll { max-width: 800px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
   .nav-scroll::-webkit-scrollbar { display: none; }
-  .nav-btn {
-    flex-shrink: 0;
-    padding: 14px 18px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--mist);
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    transition: all .2s;
-    white-space: nowrap;
-  }
-  .nav-btn:hover { color: var(--snow); }
-  .nav-btn.active {
-    color: var(--snow);
-    border-bottom-color: var(--mist);
-  }
+  .nav-btn { flex-shrink: 0; padding: 18px 22px; font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.07em; color: rgba(255,255,255,0.3); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: all .2s; white-space: nowrap; text-transform: uppercase; }
+  .nav-btn:hover { color: rgba(255,255,255,0.65); }
+  .nav-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-  /* MAIN CONTENT */
-  .main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 32px 24px 60px;
-  }
-
+  /* MAIN */
+  .main { background: var(--snow); min-height: 100vh; }
   .day-panel { display: none; }
   .day-panel.active { display: block; }
 
-  /* DAY HEADER */
-  .day-head {
-    margin-bottom: 24px;
-  }
-  .day-num {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--stone);
-    margin-bottom: 6px;
-  }
-  .day-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: var(--forest);
-    line-height: 1.2;
-    margin-bottom: 6px;
-  }
-  .day-logic {
-    font-size: 14px;
-    color: var(--stone);
-    font-style: italic;
-  }
+  /* DAY PHOTO HEADER */
+  .day-photo { position: relative; height: 380px; overflow: hidden; }
+  .day-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .day-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,18,12,0.94) 0%, rgba(8,18,12,0.3) 55%, transparent 100%); display: flex; align-items: flex-end; }
+  .day-photo-text { padding: 32px 36px; max-width: 800px; margin: 0 auto; width: 100%; }
+  .day-number { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .day-title-photo { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 5vw, 42px); font-weight: 400; color: #fff; line-height: 1.1; margin-bottom: 8px; }
+  .day-logic { font-size: 15px; color: var(--fog); font-weight: 300; font-style: italic; }
+  .photo-credit { position: absolute; bottom: 10px; right: 14px; font-size: 10px; color: rgba(255,255,255,0.25); }
 
-  /* STATS BAR */
-  .stats-bar {
-    display: flex;
-    gap: 0;
-    background: var(--forest);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 24px;
-  }
-  .stat-item {
-    flex: 1;
-    padding: 14px 12px;
-    text-align: center;
-    border-right: 1px solid rgba(255,255,255,0.08);
-  }
+  /* BODY */
+  .day-body { max-width: 800px; margin: 0 auto; padding: 32px 32px 72px; background: var(--snow); color: var(--forest); }
+
+  /* STATS */
+  .stats-bar { display: grid; grid-template-columns: repeat(5, 1fr); background: var(--forest); border-radius: 16px; overflow: hidden; margin-bottom: 32px; }
+  .stat-item { padding: 18px 10px; text-align: center; border-right: 1px solid rgba(255,255,255,0.05); }
   .stat-item:last-child { border-right: none; }
-  .stat-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: var(--snow);
-  }
-  .stat-lbl {
-    font-size: 10px;
-    color: var(--mist);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 3px;
-  }
+  .stat-val { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #fff; font-weight: 600; line-height: 1.1; }
+  .stat-lbl { font-size: 10px; color: var(--mist); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 5px; }
+
+  /* SECTION LABEL */
+  .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--stone); margin-bottom: 4px; margin-top: 32px; padding-bottom: 12px; border-bottom: 1px solid var(--fog); }
 
   /* ACTIVITIES */
-  .section-label {
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--stone);
-    margin-bottom: 10px;
-    margin-top: 24px;
-  }
-
-  .activity {
-    display: flex;
-    gap: 14px;
-    padding: 14px 16px;
-    background: white;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    border: 1px solid var(--fog);
-    text-decoration: none;
-    color: inherit;
-    transition: transform .15s, box-shadow .15s;
-  }
-  .activity:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(26,58,42,0.08);
-  }
-  .act-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-top: 4px;
-    flex-shrink: 0;
-  }
-  .act-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--forest);
-    margin-bottom: 3px;
-  }
-  .act-meta {
-    font-size: 12px;
-    color: var(--stone);
-    line-height: 1.5;
-  }
-  .tag {
-    display: inline-block;
-    font-size: 10px;
-    padding: 1px 8px;
-    border-radius: 10px;
-    margin-left: 6px;
-    vertical-align: middle;
-    font-weight: 400;
-  }
-  .tag-main { background: #e6f1fb; color: #185fa5; }
-  .tag-addon { background: #eeedfe; color: #3c3489; }
-  .tag-opt { background: #f1efe8; color: #5f5e5a; }
-  .tag-warn { background: #faeeda; color: #633806; }
-  .tag-closed { background: #fce8e8; color: #8b1f1f; }
+  .activity { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid rgba(184,212,192,0.35); text-decoration: none; color: inherit; transition: opacity .15s; }
+  .activity:last-of-type { border-bottom: none; }
+  .activity:hover { opacity: 0.7; }
+  .act-left { display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; padding-top: 5px; }
+  .act-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .act-line { width: 1px; flex: 1; min-height: 16px; background: var(--fog); }
+  .act-name { font-size: 16px; font-weight: 500; color: var(--forest); margin-bottom: 5px; line-height: 1.3; }
+  .act-meta { font-size: 14px; color: var(--stone); line-height: 1.65; font-weight: 300; }
+  .tag { display: inline-block; font-size: 10px; padding: 2px 9px; border-radius: 20px; margin-left: 8px; vertical-align: middle; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+  .tag-main { background: #dceeff; color: #1a4a7a; }
+  .tag-addon { background: #e8e6ff; color: #3a2a7a; }
+  .tag-opt { background: #ece9e2; color: #4a4440; }
+  .tag-closed { background: #ffe8e8; color: #7a1a1a; }
 
   /* TIMING */
-  .timing {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    padding: 14px 16px;
-    background: var(--fog);
-    border-radius: 10px;
-    margin-top: 20px;
-  }
-  .timing-item {
-    font-size: 12px;
-    color: var(--forest);
-    font-weight: 500;
-  }
-  .timing-sep {
-    width: 16px;
-    height: 1px;
-    background: var(--mist);
-    flex-shrink: 0;
-  }
-  .drive-pill {
-    font-size: 11px;
-    padding: 3px 10px;
-    background: var(--ocean);
-    color: white;
-    border-radius: 20px;
-  }
+  .timing { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 18px 22px; background: var(--forest); border-radius: 14px; margin-top: 28px; }
+  .timing-item { font-size: 14px; color: var(--fog); font-weight: 300; }
+  .timing-sep { width: 20px; height: 1px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
+  .drive-pill { font-size: 12px; padding: 5px 14px; background: rgba(138,170,106,0.18); color: var(--accent); border-radius: 20px; border: 1px solid rgba(138,170,106,0.28); }
 
   /* NOTE */
-  .note {
-    margin-top: 16px;
-    padding: 14px 16px;
-    border-left: 3px solid var(--sage);
-    background: white;
-    border-radius: 0 10px 10px 0;
-    font-size: 13px;
-    color: var(--stone);
-    line-height: 1.6;
-  }
+  .note { margin-top: 22px; padding: 18px 22px; background: white; border-radius: 14px; border-left: 3px solid var(--accent); font-size: 15px; color: var(--stone); line-height: 1.75; font-weight: 300; }
   .note strong { color: var(--forest); font-weight: 500; }
+  .note a { color: var(--sage); }
 
   /* HOTEL */
-  .hotel {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-top: 16px;
-    padding: 14px 16px;
-    background: var(--forest);
-    border-radius: 10px;
-  }
-  .hotel-icon {
-    font-size: 20px;
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .hotel-name {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--snow);
-  }
-  .hotel-dates {
-    font-size: 11px;
-    color: var(--mist);
-    margin-top: 2px;
-  }
-  .hotel-badge {
-    margin-left: auto;
-    font-size: 10px;
-    padding: 3px 10px;
-    background: rgba(143,184,160,0.2);
-    color: var(--mist);
-    border-radius: 20px;
-    border: 1px solid rgba(143,184,160,0.3);
-    flex-shrink: 0;
-  }
+  .hotel { display: flex; align-items: center; gap: 16px; margin-top: 22px; padding: 18px 22px; background: var(--moss); border-radius: 14px; border: 1px solid rgba(138,170,106,0.18); }
+  .hotel-icon-wrap { width: 44px; height: 44px; border-radius: 10px; background: rgba(138,170,106,0.12); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .hotel-name { font-size: 15px; font-weight: 500; color: var(--snow); }
+  .hotel-dates { font-size: 13px; color: var(--mist); margin-top: 4px; font-weight: 300; }
+  .hotel-badge { margin-left: auto; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; background: rgba(138,170,106,0.12); color: var(--accent); border-radius: 20px; border: 1px solid rgba(138,170,106,0.22); flex-shrink: 0; }
 
   /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 40px 24px;
-    background: var(--forest);
-    color: var(--mist);
-    font-size: 12px;
-  }
+  footer { text-align: center; padding: 52px 32px; background: var(--forest); color: rgba(255,255,255,0.2); font-size: 13px; letter-spacing: 0.1em; }
+  footer a { color: var(--mist); text-decoration: none; }
 
-  @media (max-width: 480px) {
-    .hero { padding: 40px 20px 36px; }
-    .hero-stats { gap: 20px; }
-    .stats-bar { flex-wrap: wrap; }
-    .stat-item { min-width: 50%; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  @media (max-width: 600px) {
+    .stats-bar { grid-template-columns: repeat(3, 1fr); }
+    .stat-item:nth-child(3) { border-right: none; }
+    .stat-item:nth-child(1), .stat-item:nth-child(2), .stat-item:nth-child(3) { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .hero h1 { font-size: 58px; }
+    .day-photo { height: 280px; }
+    .day-body { padding: 24px 20px 52px; }
+    .day-photo-text { padding: 22px 20px; }
+    .nav-btn { padding: 16px 16px; font-size: 12px; }
   }
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">Trip Itinerary</div>
-    <h1>Olympic Peninsula</h1>
-    <p class="hero-sub">August 10–16, 2026 &nbsp;·&nbsp; Port Angeles → Forks → Bainbridge Ferry</p>
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-val">6 days</div>
-        <div class="hero-stat-lbl">Total</div>
-      </div>
-      <div>
-        <div class="hero-stat-val">~50 mi</div>
-        <div class="hero-stat-lbl">On foot</div>
-      </div>
-      <div>
-        <div class="hero-stat-val">3 zones</div>
-        <div class="hero-stat-lbl">Alpine · Rainforest · Coast</div>
-      </div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Trip Itinerary &nbsp;·&nbsp; August 2026</div>
+    <h1>Olympic<br><em>Peninsula</em></h1>
+    <p class="hero-sub">August 10 – 16, 2026 &nbsp;·&nbsp; Port Angeles → Forks → Bainbridge Ferry</p>
+    <div class="hero-pills">
+      <span class="hero-pill">6 Days</span>
+      <span class="hero-pill">~50 mi on foot</span>
+      <span class="hero-pill">Alpine · Rainforest · Coast</span>
     </div>
   </div>
 </div>
@@ -389,358 +147,193 @@
 
 <div class="main">
 
-  <!-- DAY 0 -->
-  <div id="d0" class="day-panel active">
-    <div class="day-head">
-      <div class="day-num">Day 1 &nbsp;·&nbsp; Sunday Aug 10</div>
-      <h2 class="day-title">Arrival + Elwha e-bike + Olympic Hot Springs</h2>
-      <p class="day-logic">Arrive early · bike Glines Canyon · hike to springs · soak</p>
-    </div>
-    <div class="stats-bar">
-      <div class="stat-item"><div class="stat-val">16 mi</div><div class="stat-lbl">On bike</div></div>
-      <div class="stat-item"><div class="stat-val">5 mi</div><div class="stat-lbl">On foot</div></div>
-      <div class="stat-item"><div class="stat-val">~6–7 hrs</div><div class="stat-lbl">Total</div></div>
-      <div class="stat-item"><div class="stat-val">Port Angeles</div><div class="stat-lbl">Sleep</div></div>
-    </div>
-    <div class="section-label">Activities</div>
-    <div class="activity">
-      <div class="act-dot" style="background:#6b7c73;"></div>
-      <div>
-        <div class="act-name">Seattle → Port Angeles <span class="tag tag-opt">Early arrival needed</span></div>
-        <div class="act-meta">Drive 2.5–4 hrs · aim to arrive by 8:00–8:30 AM · overnight Seattle Aug 9 recommended</div>
-      </div>
-    </div>
-    <a href="https://www.elwhaebikeadventures.com/" target="_blank" class="activity">
-      <div class="act-dot" style="background:#2d5a3d;"></div>
-      <div>
-        <div class="act-name">Elwha eBike Adventures — rent e-bikes</div>
-        <div class="act-meta">47 Lower Dam Rd · open 7 days 9am–5pm · (360) 457-9024 · book well in advance</div>
-      </div>
-    </a>
-    <div class="activity">
-      <div class="act-dot" style="background:#4a7c59;"></div>
-      <div>
-        <div class="act-name">Bike up Olympic Hot Springs Road <span class="tag tag-main">Main</span></div>
-        <div class="act-meta">8 mi · paved · ~60–90 min up · Glines Canyon dam removal site en route</div>
-      </div>
-    </div>
-    <div class="activity">
-      <div class="act-dot" style="background:#6b7c73;"></div>
-      <div>
-        <div class="act-name">Bypass trail around road washout</div>
-        <div class="act-meta">~0.25 mi · walk bikes · rocky single track · ~20 min · trickiest section of the day</div>
-      </div>
-    </div>
-    <div class="activity">
-      <div class="act-dot" style="background:#4a3a7a;"></div>
-      <div>
-        <div class="act-name">Lock bikes · hike to Olympic Hot Springs <span class="tag tag-main">Destination</span></div>
-        <div class="act-meta">2.4 mi on foot · ~80 min · 5–7 creek crossings · soak ~60–90 min · higher pools are warmest</div>
-      </div>
-    </div>
-    <div class="activity">
-      <div class="act-dot" style="background:#2a4a6b;"></div>
-      <div>
-        <div class="act-name">Ride back down to Madison Falls</div>
-        <div class="act-meta">~45–60 min descent · return bikes · check into hotel</div>
-      </div>
-    </div>
-    <div class="timing">
-      <span class="timing-item">Arrive ~8:30 AM</span>
-      <div class="timing-sep"></div>
-      <span class="drive-pill">Bikes from 9:00 AM</span>
-      <div class="timing-sep"></div>
-      <span class="timing-item">Back by ~4:00–4:30 PM</span>
-    </div>
-    <div class="note"><strong>Bring:</strong> sandals for creek crossings, water, snacks, change of clothes for the soak. Nudity is common at the springs. Requires overnight in Seattle Aug 9 or very early flight.</div>
-    <div class="hotel">
-      <div class="hotel-icon">🏨</div>
-      <div>
-        <div class="hotel-name">Riviera Inn Motel — Port Angeles</div>
-        <div class="hotel-dates">Check-in Aug 10 at 3:00 PM &nbsp;·&nbsp; Check-out Aug 13 at 11:00 AM</div>
-      </div>
-      <div class="hotel-badge">Booked</div>
-    </div>
-  </div>
-
   <!-- DAY 1 -->
-  <div id="d1" class="day-panel">
-    <div class="day-head">
-      <div class="day-num">Day 2 &nbsp;·&nbsp; Monday Aug 11</div>
-      <h2 class="day-title">Hurricane Ridge — Cirque Rim + Hurricane Hill</h2>
-      <p class="day-logic">Rest the morning · easy warm-up loop · then the main summit hike</p>
+  <div id="d0" class="day-panel active">
+    <div class="day-photo">
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1400&q=85&fit=crop" alt="Sunlit forest trail summer">
+      <div class="day-photo-overlay"><div class="day-photo-text">
+        <div class="day-number">Day 1 &nbsp;·&nbsp; Sunday Aug 10</div>
+        <h2 class="day-title-photo">Arrival + Elwha e-bike + Olympic Hot Springs</h2>
+        <p class="day-logic">Arrive early · bike Glines Canyon · hike to springs · soak</p>
+      </div></div>
+      <div class="photo-credit">Photo: Unsplash</div>
     </div>
-    <div class="stats-bar">
-      <div class="stat-item"><div class="stat-val">~5 mi</div><div class="stat-lbl">Distance</div></div>
-      <div class="stat-item"><div class="stat-val">~1,000 ft</div><div class="stat-lbl">Gain</div></div>
-      <div class="stat-item"><div class="stat-val">3–4 hrs</div><div class="stat-lbl">Hiking</div></div>
-      <div class="stat-item"><div class="stat-val">Port Angeles</div><div class="stat-lbl">Sleep</div></div>
-    </div>
-    <div class="section-label">Activities</div>
-    <a href="https://www.alltrails.com/trail/us/washington/cirque-rim-nature-trail" target="_blank" class="activity">
-      <div class="act-dot" style="background:#4a3a7a;"></div>
-      <div>
-        <div class="act-name">Cirque Rim → Sunrise View Point <span class="tag tag-main">Warm-up</span></div>
-        <div class="act-meta">1.4 mi · 219 ft · ~45 min · paved to start · alpine meadow · lupine · marmots · views of Strait of Juan de Fuca</div>
+    <div class="day-body">
+      <div class="stats-bar">
+        <div class="stat-item"><div class="stat-val">16 mi</div><div class="stat-lbl">Biking</div></div>
+        <div class="stat-item"><div class="stat-val">5 mi</div><div class="stat-lbl">Hiking</div></div>
+        <div class="stat-item"><div class="stat-val">1,374 ft</div><div class="stat-lbl">Gain</div></div>
+        <div class="stat-item"><div class="stat-val">~6–7 hrs</div><div class="stat-lbl">Duration</div></div>
+        <div class="stat-item"><div class="stat-val">Port Angeles</div><div class="stat-lbl">Sleep</div></div>
       </div>
-    </a>
-    <a href="https://www.alltrails.com/trail/us/washington/hurricane-hill-via-hurricane-ridge" target="_blank" class="activity">
-      <div class="act-dot" style="background:#2a4a6b;"></div>
-      <div>
-        <div class="act-name">Hurricane Hill trail <span class="tag tag-main">Main</span></div>
-        <div class="act-meta">3.4 mi · ~800 ft · 2–3 hrs · extend past paved section along the ridge · panoramic summit views</div>
-      </div>
-    </a>
-    <div class="timing">
-      <span class="timing-item">Leave hotel 3:00 PM</span>
-      <div class="timing-sep"></div>
-      <span class="drive-pill">Drive 40 min</span>
-      <div class="timing-sep"></div>
-      <span class="timing-item">Both trails same parking lot</span>
-    </div>
-    <div class="note"><strong>Morning:</strong> Rest after Day 0 — sleep in, eat a proper breakfast. <strong>Conditions:</strong> Check NPS for any meadow trail construction impacts on Cirque Rim in August 2026.</div>
-    <div class="hotel">
-      <div class="hotel-icon">🏨</div>
-      <div>
-        <div class="hotel-name">Riviera Inn Motel — Port Angeles</div>
-        <div class="hotel-dates">Check-in Aug 10 at 3:00 PM &nbsp;·&nbsp; Check-out Aug 13 at 11:00 AM</div>
-      </div>
-      <div class="hotel-badge">Booked</div>
+      <div class="section-label">Activities</div>
+      <div class="activity"><div class="act-left"><div class="act-dot" style="background:#5a6b60;"></div><div class="act-line"></div></div><div><div class="act-name">Seattle → Port Angeles <span class="tag tag-opt">Early arrival needed</span></div><div class="act-meta">Drive 2.5–4 hrs · aim to arrive by 8:00–8:30 AM · overnight Seattle Aug 9 recommended</div></div></div>
+      <a href="https://www.elwhaebikeadventures.com/" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#3a6647;"></div><div class="act-line"></div></div><div><div class="act-name">Elwha eBike Adventures — rent e-bikes</div><div class="act-meta">47 Lower Dam Rd · open 7 days 9am–5pm · (360) 457-9024 · book well in advance</div></div></a>
+      <div class="activity"><div class="act-left"><div class="act-dot" style="background:#3a6647;"></div><div class="act-line"></div></div><div><div class="act-name">Bike up Olympic Hot Springs Road <span class="tag tag-main">Main</span></div><div class="act-meta">8 mi each way · paved · ~60–90 min up · Glines Canyon dam removal site en route</div></div></div>
+      <div class="activity"><div class="act-left"><div class="act-dot" style="background:#5a6b60;"></div><div class="act-line"></div></div><div><div class="act-name">Bypass trail around road washout</div><div class="act-meta">~0.25 mi · walk bikes · rocky single track · ~20 min · trickiest section of the day</div></div></div>
+      <div class="activity"><div class="act-left"><div class="act-dot" style="background:#3a3a7a;"></div><div class="act-line"></div></div><div><div class="act-name">Lock bikes · hike to Olympic Hot Springs <span class="tag tag-main">Destination</span></div><div class="act-meta">2.4 mi on foot · ~80 min · 5–7 creek crossings · soak ~60–90 min · higher pools warmest</div></div></div>
+      <div class="activity"><div class="act-left"><div class="act-dot" style="background:#1e3a52;"></div></div><div><div class="act-name">Ride back down to Madison Falls</div><div class="act-meta">~45–60 min descent · return bikes · check into hotel</div></div></div>
+      <div class="timing"><span class="timing-item">Arrive ~8:30 AM</span><div class="timing-sep"></div><span class="drive-pill">Bikes from 9:00 AM</span><div class="timing-sep"></div><span class="timing-item">Back by ~4:00–4:30 PM</span></div>
+      <div class="note"><strong>Bring:</strong> sandals for creek crossings, water, snacks, change of clothes for the soak. Nudity is common at the springs. Requires overnight in Seattle Aug 9 or very early flight.</div>
+      <div class="hotel"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Riviera Inn Motel — Port Angeles</div><div class="hotel-dates">Check-in Aug 10 at 3:00 PM &nbsp;·&nbsp; Check-out Aug 13 at 11:00 AM</div></div><div class="hotel-badge">Booked</div></div>
     </div>
   </div>
 
   <!-- DAY 2 -->
-  <div id="d2" class="day-panel">
-    <div class="day-head">
-      <div class="day-num">Day 3 &nbsp;·&nbsp; Tuesday Aug 12</div>
-      <h2 class="day-title">Storm King + Marymere Falls + Lake Crescent kayak</h2>
-      <p class="day-logic">Hardest climb of the trip · waterfall cool-down · recover on the water</p>
+  <div id="d1" class="day-panel">
+    <div class="day-photo">
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1400&q=85&fit=crop" alt="Alpine meadow wildflowers summer mountains">
+      <div class="day-photo-overlay"><div class="day-photo-text">
+        <div class="day-number">Day 2 &nbsp;·&nbsp; Monday Aug 11</div>
+        <h2 class="day-title-photo">Hurricane Ridge — Cirque Rim + Hurricane Hill</h2>
+        <p class="day-logic">Rest the morning · easy warm-up loop · then the main summit hike</p>
+      </div></div>
+      <div class="photo-credit">Photo: Unsplash</div>
     </div>
-    <div class="stats-bar">
-      <div class="stat-item"><div class="stat-val">~6.3 mi</div><div class="stat-lbl">Hiking</div></div>
-      <div class="stat-item"><div class="stat-val">~2,300 ft</div><div class="stat-lbl">Gain</div></div>
-      <div class="stat-item"><div class="stat-val">Full day</div><div class="stat-lbl">Duration</div></div>
-      <div class="stat-item"><div class="stat-val">Port Angeles</div><div class="stat-lbl">Sleep</div></div>
-    </div>
-    <div class="section-label">Activities</div>
-    <a href="https://www.alltrails.com/trail/us/washington/mount-storm-king" target="_blank" class="activity">
-      <div class="act-dot" style="background:#c04a2a;"></div>
-      <div>
-        <div class="act-name">Mount Storm King <span class="tag tag-main">Main</span></div>
-        <div class="act-meta">4.8 mi · ~2,100 ft · 3–4 hrs · rope section near summit · highly challenging · most injuries on descent</div>
+    <div class="day-body">
+      <div class="stats-bar">
+        <div class="stat-item"><div class="stat-val">~5 mi</div><div class="stat-lbl">Hiking</div></div>
+        <div class="stat-item"><div class="stat-val">~1,000 ft</div><div class="stat-lbl">Gain</div></div>
+        <div class="stat-item"><div class="stat-val">3–4 hrs</div><div class="stat-lbl">Duration</div></div>
+        <div class="stat-item"><div class="stat-val">40 min</div><div class="stat-lbl">Driving</div></div>
+        <div class="stat-item"><div class="stat-val">Port Angeles</div><div class="stat-lbl">Sleep</div></div>
       </div>
-    </a>
-    <a href="https://www.alltrails.com/trail/us/washington/marymere-falls-trail" target="_blank" class="activity">
-      <div class="act-dot" style="background:#4a7c59;"></div>
-      <div>
-        <div class="act-name">Marymere Falls <span class="tag tag-addon">Cool-down</span></div>
-        <div class="act-meta">1.5 mi · ~200 ft · 30–45 min · same trailhead · 90-ft waterfall through old-growth forest</div>
-      </div>
-    </a>
-    <div class="activity">
-      <div class="act-dot" style="background:#2d5a3d;"></div>
-      <div>
-        <div class="act-name">Lake Crescent kayak rental <span class="tag tag-main">Afternoon</span></div>
-        <div class="act-meta">Rent from Lake Crescent Lodge · self-guided · ~1–2 hrs · upper body recovery after the climb</div>
-      </div>
-    </div>
-    <div class="timing">
-      <span class="timing-item">Leave 8:00 AM</span>
-      <div class="timing-sep"></div>
-      <span class="drive-pill">Drive 30 min</span>
-      <div class="timing-sep"></div>
-      <span class="timing-item">Storm King → Marymere → kayak</span>
-    </div>
-    <div class="note"><strong>Storm King:</strong> The unmaintained rope section near summit — most injuries happen on descent. The maintained viewpoint at 1.3 miles is already stunning if you want to stop there. <strong>Kayak:</strong> Call Lake Crescent Lodge ahead to confirm August rental availability.</div>
-    <div class="hotel">
-      <div class="hotel-icon">🏨</div>
-      <div>
-        <div class="hotel-name">Riviera Inn Motel — Port Angeles</div>
-        <div class="hotel-dates">Check-in Aug 10 at 3:00 PM &nbsp;·&nbsp; Check-out Aug 13 at 11:00 AM</div>
-      </div>
-      <div class="hotel-badge">Booked</div>
+      <div class="section-label">Activities</div>
+      <a href="https://www.alltrails.com/trail/us/washington/cirque-rim-nature-trail" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#3a3a7a;"></div><div class="act-line"></div></div><div><div class="act-name">Cirque Rim → Sunrise View Point <span class="tag tag-main">Warm-up</span></div><div class="act-meta">1.4 mi · 219 ft · ~45 min · paved to start · alpine meadow · lupine · marmots · Strait of Juan de Fuca views</div></div></a>
+      <a href="https://www.alltrails.com/trail/us/washington/hurricane-hill-via-hurricane-ridge" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#1e3a52;"></div></div><div><div class="act-name">Hurricane Hill trail <span class="tag tag-main">Main</span></div><div class="act-meta">3.4 mi · ~800 ft · 2–3 hrs · extend past paved section · panoramic summit views of the Olympics</div></div></a>
+      <div class="timing"><span class="timing-item">Leave hotel 3:00 PM</span><div class="timing-sep"></div><span class="drive-pill">Drive 40 min</span><div class="timing-sep"></div><span class="timing-item">Both trails from same parking lot</span></div>
+      <div class="note"><strong>Morning:</strong> Rest after Day 1 — sleep in, eat a proper breakfast. <strong>Conditions:</strong> Check NPS for any meadow trail construction impacts on Cirque Rim in August 2026.</div>
+      <div class="hotel"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Riviera Inn Motel — Port Angeles</div><div class="hotel-dates">Check-in Aug 10 at 3:00 PM &nbsp;·&nbsp; Check-out Aug 13 at 11:00 AM</div></div><div class="hotel-badge">Booked</div></div>
     </div>
   </div>
 
   <!-- DAY 3 -->
-  <div id="d3" class="day-panel">
-    <div class="day-head">
-      <div class="day-num">Day 4 &nbsp;·&nbsp; Wednesday Aug 13</div>
-      <h2 class="day-title">Hoh Rainforest</h2>
-      <p class="day-logic">Long flat miles through the rainforest · drive to Forks to sleep</p>
+  <div id="d2" class="day-panel">
+    <div class="day-photo">
+      <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1400&q=85&fit=crop" alt="Blue mountain lake summer kayak">
+      <div class="day-photo-overlay"><div class="day-photo-text">
+        <div class="day-number">Day 3 &nbsp;·&nbsp; Tuesday Aug 12</div>
+        <h2 class="day-title-photo">Storm King + Marymere Falls + Lake Crescent kayak</h2>
+        <p class="day-logic">Hardest climb of the trip · waterfall cool-down · recover on the water</p>
+      </div></div>
+      <div class="photo-credit">Photo: Unsplash</div>
     </div>
-    <div class="stats-bar">
-      <div class="stat-item"><div class="stat-val">11.5 mi</div><div class="stat-lbl">Distance</div></div>
-      <div class="stat-item"><div class="stat-val">300–400 ft</div><div class="stat-lbl">Gain</div></div>
-      <div class="stat-item"><div class="stat-val">5–6 hrs</div><div class="stat-lbl">Hiking</div></div>
-      <div class="stat-item"><div class="stat-val">Forks</div><div class="stat-lbl">Sleep</div></div>
-    </div>
-    <div class="section-label">Activities</div>
-    <a href="https://www.alltrails.com/trail/us/washington/hoh-rain-forest-hall-of-moss" target="_blank" class="activity">
-      <div class="act-dot" style="background:#4a7c59;"></div>
-      <div>
-        <div class="act-name">Hall of Mosses <span class="tag tag-addon">Warm-up</span></div>
-        <div class="act-meta">1.1 mi loop · 15–20 min · iconic old-growth · arrive early to beat crowds</div>
+    <div class="day-body">
+      <div class="stats-bar">
+        <div class="stat-item"><div class="stat-val">~6.3 mi</div><div class="stat-lbl">Hiking</div></div>
+        <div class="stat-item"><div class="stat-val">~2,300 ft</div><div class="stat-lbl">Gain</div></div>
+        <div class="stat-item"><div class="stat-val">Full day</div><div class="stat-lbl">Duration</div></div>
+        <div class="stat-item"><div class="stat-val">30 min</div><div class="stat-lbl">Driving</div></div>
+        <div class="stat-item"><div class="stat-val">Port Angeles</div><div class="stat-lbl">Sleep</div></div>
       </div>
-    </a>
-    <a href="https://www.alltrails.com/trail/us/washington/hoh-river-trail" target="_blank" class="activity">
-      <div class="act-dot" style="background:#2d5a3d;"></div>
-      <div>
-        <div class="act-name">Hoh River Trail to Five Mile Island <span class="tag tag-main">Main</span></div>
-        <div class="act-meta">10.6 mi · ~300 ft · 5–6 hrs · flat river valley through temperate rainforest · Roosevelt elk likely</div>
-      </div>
-    </a>
-    <div class="timing">
-      <span class="timing-item">Leave 6:30 AM</span>
-      <div class="timing-sep"></div>
-      <span class="drive-pill">Hoh ~2 hrs from PA</span>
-      <div class="timing-sep"></div>
-      <span class="timing-item">Hoh → Forks ~45 min</span>
-    </div>
-    <div class="note"><strong>Trail note:</strong> Check recent reports for flooding ~1 mile before Five Mile Island — shin-deep water reported at times. Parking at Hoh fills early in summer — 6:30 AM departure helps.</div>
-    <div class="hotel">
-      <div class="hotel-icon">🏨</div>
-      <div>
-        <div class="hotel-name">The Forks Motel — Forks</div>
-        <div class="hotel-dates">Check-in Aug 13 at 3:00 PM &nbsp;·&nbsp; Check-out Aug 16 at 11:00 AM &nbsp;·&nbsp; 3 nights</div>
-      </div>
-      <div class="hotel-badge">Booked</div>
+      <div class="section-label">Activities</div>
+      <a href="https://www.alltrails.com/trail/us/washington/mount-storm-king" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#8a3a1a;"></div><div class="act-line"></div></div><div><div class="act-name">Mount Storm King <span class="tag tag-main">Main</span></div><div class="act-meta">4.8 mi · ~2,100 ft · 3–4 hrs · rope section near summit · highly challenging · most injuries on descent</div></div></a>
+      <a href="https://www.alltrails.com/trail/us/washington/marymere-falls-trail" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#3a6647;"></div><div class="act-line"></div></div><div><div class="act-name">Marymere Falls <span class="tag tag-addon">Cool-down</span></div><div class="act-meta">1.5 mi · ~200 ft · 30–45 min · same trailhead · 90-ft waterfall through old-growth forest</div></div></a>
+      <div class="activity"><div class="act-left"><div class="act-dot" style="background:#1e3d2a;"></div></div><div><div class="act-name">Lake Crescent kayak rental <span class="tag tag-main">Afternoon</span></div><div class="act-meta">Rent from Lake Crescent Lodge · self-guided · ~1–2 hrs · upper body recovery after the climb</div></div></div>
+      <div class="timing"><span class="timing-item">Leave 8:00 AM</span><div class="timing-sep"></div><span class="drive-pill">Drive 30 min</span><div class="timing-sep"></div><span class="timing-item">Storm King → Marymere → kayak</span></div>
+      <div class="note"><strong>Storm King:</strong> Rope section near summit is unmaintained — most injuries happen on descent. The maintained viewpoint at 1.3 miles is already stunning. <strong>Kayak:</strong> Call Lake Crescent Lodge ahead to confirm August availability.</div>
+      <div class="hotel"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">Riviera Inn Motel — Port Angeles</div><div class="hotel-dates">Check-in Aug 10 at 3:00 PM &nbsp;·&nbsp; Check-out Aug 13 at 11:00 AM</div></div><div class="hotel-badge">Booked</div></div>
     </div>
   </div>
 
   <!-- DAY 4 -->
-  <div id="d4" class="day-panel">
-    <div class="day-head">
-      <div class="day-num">Day 5 &nbsp;·&nbsp; Thursday Aug 14</div>
-      <h2 class="day-title">Coastal beaches — tide-critical</h2>
-      <p class="day-logic">Taylor Point scramble · Second Beach · First Beach · Ruby Beach sunset</p>
+  <div id="d3" class="day-panel">
+    <div class="day-photo">
+      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1400&q=85&fit=crop" alt="Hoh Rainforest green moss ancient trees">
+      <div class="day-photo-overlay"><div class="day-photo-text">
+        <div class="day-number">Day 4 &nbsp;·&nbsp; Wednesday Aug 13</div>
+        <h2 class="day-title-photo">Hoh Rainforest</h2>
+        <p class="day-logic">Long flat miles through the rainforest · drive to Forks to sleep</p>
+      </div></div>
+      <div class="photo-credit">Photo: Unsplash</div>
     </div>
-    <div class="stats-bar">
-      <div class="stat-item"><div class="stat-val">~12–13 mi</div><div class="stat-lbl">Distance</div></div>
-      <div class="stat-item"><div class="stat-val">~1,200 ft</div><div class="stat-lbl">Gain</div></div>
-      <div class="stat-item"><div class="stat-val">~2 hrs</div><div class="stat-lbl">Driving</div></div>
-      <div class="stat-item"><div class="stat-val">Forks</div><div class="stat-lbl">Sleep</div></div>
-    </div>
-    <div class="section-label">Activities</div>
-    <div class="activity" style="border-color:#faeeda; background:#fffdf8;">
-      <div class="act-dot" style="background:#b87518;"></div>
-      <div>
-        <div class="act-name">Rialto Beach / Hole-in-the-Wall <span class="tag tag-closed">Closed Jul 8–Oct 5</span></div>
-        <div class="act-meta">Mora Road closed for construction — replaced by Third Beach → Taylor Point below</div>
+    <div class="day-body">
+      <div class="stats-bar">
+        <div class="stat-item"><div class="stat-val">11.5 mi</div><div class="stat-lbl">Hiking</div></div>
+        <div class="stat-item"><div class="stat-val">300–400 ft</div><div class="stat-lbl">Gain</div></div>
+        <div class="stat-item"><div class="stat-val">5–6 hrs</div><div class="stat-lbl">Duration</div></div>
+        <div class="stat-item"><div class="stat-val">~3 hrs</div><div class="stat-lbl">Driving</div></div>
+        <div class="stat-item"><div class="stat-val">Forks</div><div class="stat-lbl">Sleep</div></div>
       </div>
-    </div>
-    <a href="https://www.alltrails.com/trail/us/washington/third-beach-trail-to-taylor-point" target="_blank" class="activity">
-      <div class="act-dot" style="background:#c04a2a;"></div>
-      <div>
-        <div class="act-name">Third Beach → Taylor Point <span class="tag tag-main">Morning</span></div>
-        <div class="act-meta">5.8 mi · ~905 ft · 2.5–3 hrs · rope ladders · sea stacks · dramatic coastal scramble · bring gloves</div>
-      </div>
-    </a>
-    <a href="https://www.alltrails.com/trail/us/washington/second-beach-trail--3" target="_blank" class="activity">
-      <div class="act-dot" style="background:#2a4a6b;"></div>
-      <div>
-        <div class="act-name">Second Beach <span class="tag tag-main">Midday</span></div>
-        <div class="act-meta">2.2 mi · ~290 ft · 1.5–2 hrs · tide pools · sea stacks · 5 min drive from Third Beach</div>
-      </div>
-    </a>
-    <div class="activity">
-      <div class="act-dot" style="background:#6b7c73;"></div>
-      <div>
-        <div class="act-name">First Beach — La Push <span class="tag tag-addon">Casual stop</span></div>
-        <div class="act-meta">No hiking · Quileute Reservation surf beach · 30–45 min wander · on the drive between beaches</div>
-      </div>
-    </div>
-    <a href="https://www.alltrails.com/trail/us/washington/ruby-beach-trail" target="_blank" class="activity">
-      <div class="act-dot" style="background:#8b3060;"></div>
-      <div>
-        <div class="act-name">Ruby Beach <span class="tag tag-addon">Sunset ~8:00 PM</span></div>
-        <div class="act-meta">1 mi · minimal elevation · sea stacks · driftwood · 45 min drive south on Hwy 101</div>
-      </div>
-    </a>
-    <div class="timing">
-      <span class="timing-item">Leave Forks 6:15 AM</span>
-      <div class="timing-sep"></div>
-      <span class="drive-pill">La Push ~20 min</span>
-      <div class="timing-sep"></div>
-      <span class="timing-item">Taylor Pt → Second → First → Ruby</span>
-    </div>
-    <div class="note"><strong>Tide is everything:</strong> Check NOAA station 9442396 (La Push) for Aug 14. Plan to be on the beach within 2 hrs of low tide — Taylor Point rope ladders can be impassable at high tide. Bring gloves for the ropes. <strong>First Beach:</strong> Quileute Reservation — ask before photographing people or events.</div>
-    <div class="hotel">
-      <div class="hotel-icon">🏨</div>
-      <div>
-        <div class="hotel-name">The Forks Motel — Forks</div>
-        <div class="hotel-dates">Check-in Aug 13 at 3:00 PM &nbsp;·&nbsp; Check-out Aug 16 at 11:00 AM &nbsp;·&nbsp; 3 nights</div>
-      </div>
-      <div class="hotel-badge">Booked</div>
+      <div class="section-label">Activities</div>
+      <a href="https://www.alltrails.com/trail/us/washington/hoh-rain-forest-hall-of-moss" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#3a6647;"></div><div class="act-line"></div></div><div><div class="act-name">Hall of Mosses <span class="tag tag-addon">Warm-up</span></div><div class="act-meta">1.1 mi loop · 15–20 min · iconic old-growth · arrive early to beat crowds</div></div></a>
+      <a href="https://www.alltrails.com/trail/us/washington/hoh-river-trail" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#1e3d2a;"></div></div><div><div class="act-name">Hoh River Trail to Five Mile Island <span class="tag tag-main">Main</span></div><div class="act-meta">10.6 mi · ~300 ft · 5–6 hrs · flat river valley through temperate rainforest · Roosevelt elk likely</div></div></a>
+      <div class="timing"><span class="timing-item">Leave 6:30 AM</span><div class="timing-sep"></div><span class="drive-pill">Hoh ~2 hrs from PA</span><div class="timing-sep"></div><span class="timing-item">Hoh → Forks ~45 min</span></div>
+      <div class="note"><strong>Trail note:</strong> Check recent reports for flooding ~1 mile before Five Mile Island. Parking fills early in summer — 6:30 AM departure helps.</div>
+      <div class="hotel"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">The Forks Motel — Forks</div><div class="hotel-dates">Check-in Aug 13 at 3:00 PM &nbsp;·&nbsp; Check-out Aug 16 at 11:00 AM &nbsp;·&nbsp; 3 nights</div></div><div class="hotel-badge">Booked</div></div>
     </div>
   </div>
 
   <!-- DAY 5 -->
+  <div id="d4" class="day-panel">
+    <div class="day-photo">
+      <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1400&q=85&fit=crop" alt="Pacific coast beach summer sea stacks sunset">
+      <div class="day-photo-overlay"><div class="day-photo-text">
+        <div class="day-number">Day 5 &nbsp;·&nbsp; Thursday Aug 14</div>
+        <h2 class="day-title-photo">Coastal beaches — tide-critical</h2>
+        <p class="day-logic">Taylor Point scramble · Second Beach · First Beach · Ruby Beach sunset</p>
+      </div></div>
+      <div class="photo-credit">Photo: Unsplash</div>
+    </div>
+    <div class="day-body">
+      <div class="stats-bar">
+        <div class="stat-item"><div class="stat-val">~12–13 mi</div><div class="stat-lbl">Hiking</div></div>
+        <div class="stat-item"><div class="stat-val">~1,200 ft</div><div class="stat-lbl">Gain</div></div>
+        <div class="stat-item"><div class="stat-val">Full day</div><div class="stat-lbl">Duration</div></div>
+        <div class="stat-item"><div class="stat-val">~2 hrs</div><div class="stat-lbl">Driving</div></div>
+        <div class="stat-item"><div class="stat-val">Forks</div><div class="stat-lbl">Sleep</div></div>
+      </div>
+      <div class="section-label">Activities</div>
+      <div class="activity" style="opacity:0.45;"><div class="act-left"><div class="act-dot" style="background:#8a6020;"></div><div class="act-line"></div></div><div><div class="act-name">Rialto Beach / Hole-in-the-Wall <span class="tag tag-closed">Closed Jul 8–Oct 5</span></div><div class="act-meta">Mora Road closed for construction — replaced by Third Beach → Taylor Point below</div></div></div>
+      <a href="https://www.alltrails.com/trail/us/washington/third-beach-trail-to-taylor-point" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#8a3a1a;"></div><div class="act-line"></div></div><div><div class="act-name">Third Beach → Taylor Point <span class="tag tag-main">Morning</span></div><div class="act-meta">5.8 mi · ~905 ft · 2.5–3 hrs · rope ladders · sea stacks · dramatic coastal scramble · bring gloves</div></div></a>
+      <a href="https://www.alltrails.com/trail/us/washington/second-beach-trail--3" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#1e3a52;"></div><div class="act-line"></div></div><div><div class="act-name">Second Beach <span class="tag tag-main">Midday</span></div><div class="act-meta">2.2 mi · ~290 ft · 1.5–2 hrs · tide pools · sea stacks · 5 min drive from Third Beach</div></div></a>
+      <div class="activity"><div class="act-left"><div class="act-dot" style="background:#5a6b60;"></div><div class="act-line"></div></div><div><div class="act-name">First Beach — La Push <span class="tag tag-addon">Casual stop</span></div><div class="act-meta">No hiking · Quileute Reservation surf beach · 30–45 min wander · on the drive between beaches</div></div></div>
+      <a href="https://www.alltrails.com/trail/us/washington/ruby-beach-trail" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#6a2a50;"></div></div><div><div class="act-name">Ruby Beach <span class="tag tag-addon">Sunset ~8:00 PM</span></div><div class="act-meta">1 mi · minimal elevation · sea stacks · driftwood · 45 min drive south on Hwy 101</div></div></a>
+      <div class="timing"><span class="timing-item">Leave Forks 6:15 AM</span><div class="timing-sep"></div><span class="drive-pill">La Push ~20 min</span><div class="timing-sep"></div><span class="timing-item">Taylor Pt → Second → First → Ruby</span></div>
+      <div class="note"><strong>Tide is everything:</strong> Check NOAA station 9442396 (La Push) for Aug 14. Plan to be on the beach within 2 hrs of low tide — Taylor Point rope ladders can be impassable at high tide. Bring gloves. <strong>First Beach:</strong> Quileute Reservation — ask before photographing people or events.</div>
+      <div class="hotel"><div class="hotel-icon-wrap">🏨</div><div><div class="hotel-name">The Forks Motel — Forks</div><div class="hotel-dates">Check-in Aug 13 at 3:00 PM &nbsp;·&nbsp; Check-out Aug 16 at 11:00 AM &nbsp;·&nbsp; 3 nights</div></div><div class="hotel-badge">Booked</div></div>
+    </div>
+  </div>
+
+  <!-- DAY 6 -->
   <div id="d5" class="day-panel">
-    <div class="day-head">
-      <div class="day-num">Day 6 &nbsp;·&nbsp; Saturday Aug 16</div>
-      <h2 class="day-title">Exit via Bainbridge Ferry</h2>
-      <p class="day-logic">Kalaloch · Port Gamble · dinner in Winslow · ferry into Seattle</p>
+    <div class="day-photo">
+      <img src="https://images.unsplash.com/photo-1502175353174-a7a70e73b362?w=1400&q=85&fit=crop" alt="Seattle waterfront summer ferry">
+      <div class="day-photo-overlay"><div class="day-photo-text">
+        <div class="day-number">Day 6 &nbsp;·&nbsp; Saturday Aug 16</div>
+        <h2 class="day-title-photo">Exit via Bainbridge Ferry</h2>
+        <p class="day-logic">Kalaloch · Port Gamble · dinner in Winslow · ferry into Seattle</p>
+      </div></div>
+      <div class="photo-credit">Photo: Unsplash</div>
     </div>
-    <div class="stats-bar">
-      <div class="stat-item"><div class="stat-val">Minimal</div><div class="stat-lbl">Walking</div></div>
-      <div class="stat-item"><div class="stat-val">~35 min</div><div class="stat-lbl">Ferry</div></div>
-      <div class="stat-item"><div class="stat-val">~4.5 hrs</div><div class="stat-lbl">Driving</div></div>
-      <div class="stat-item"><div class="stat-val">Seattle</div><div class="stat-lbl">End</div></div>
-    </div>
-    <div class="section-label">Stops</div>
-    <div class="activity">
-      <div class="act-dot" style="background:#4a7c59;"></div>
-      <div>
-        <div class="act-name">Kalaloch — Tree of Life + beach walk <span class="tag tag-addon">En route</span></div>
-        <div class="act-meta">30–45 min · Sitka spruce suspended over eroded bank · roadside pull-off on Hwy 101</div>
+    <div class="day-body">
+      <div class="stats-bar">
+        <div class="stat-item"><div class="stat-val">Minimal</div><div class="stat-lbl">Hiking</div></div>
+        <div class="stat-item"><div class="stat-val">—</div><div class="stat-lbl">Gain</div></div>
+        <div class="stat-item"><div class="stat-val">Full day</div><div class="stat-lbl">Duration</div></div>
+        <div class="stat-item"><div class="stat-val">~4.5 hrs</div><div class="stat-lbl">Driving</div></div>
+        <div class="stat-item"><div class="stat-val">Seattle</div><div class="stat-lbl">Sleep</div></div>
       </div>
+      <div class="section-label">Stops</div>
+      <div class="activity"><div class="act-left"><div class="act-dot" style="background:#3a6647;"></div><div class="act-line"></div></div><div><div class="act-name">Kalaloch — Tree of Life + beach walk <span class="tag tag-addon">En route</span></div><div class="act-meta">30–45 min · Sitka spruce suspended over eroded bank · roadside pull-off on Hwy 101</div></div></div>
+      <div class="activity"><div class="act-left"><div class="act-dot" style="background:#5a6b60;"></div><div class="act-line"></div></div><div><div class="act-name">Port Gamble <span class="tag tag-addon">En route</span></div><div class="act-meta">~20 min wander · perfectly preserved 19th century mill town · just off Hwy 104 past Hood Canal Bridge</div></div></div>
+      <div class="activity"><div class="act-left"><div class="act-dot" style="background:#1e3d2a;"></div><div class="act-line"></div></div><div><div class="act-name">Winslow — dinner before the ferry</div><div class="act-meta">5 min walk from Bainbridge terminal · shops · waterfront · arrive early and eat well before boarding</div></div></div>
+      <a href="https://www.wsdot.wa.gov/ferries" target="_blank" class="activity"><div class="act-left"><div class="act-dot" style="background:#3a3a7a;"></div></div><div><div class="act-name">Bainbridge Island → Seattle ferry</div><div class="act-meta">Washington State Ferries · target ~7:00 PM departure · 35 min crossing · arrive Seattle by water</div></div></a>
+      <div class="timing"><span class="timing-item">Leave Forks 8:30–9:00 AM</span><div class="timing-sep"></div><span class="drive-pill">Arrive terminal 45–60 min early</span><div class="timing-sep"></div><span class="timing-item">Ferry ~7:00 PM</span></div>
+      <div class="note"><strong>Book your ferry spot:</strong> Reserve vehicle space at <a href="https://www.wsdot.wa.gov/ferries" target="_blank">wsdot.wa.gov/ferries</a> — summer Saturday sailings fill up fast. Bainbridge Island → Seattle Pier 52, ~35 min crossing.</div>
     </div>
-    <div class="activity">
-      <div class="act-dot" style="background:#6b7c73;"></div>
-      <div>
-        <div class="act-name">Port Gamble <span class="tag tag-addon">En route</span></div>
-        <div class="act-meta">~20 min wander · perfectly preserved 19th century mill town · just off Hwy 104 past Hood Canal Bridge</div>
-      </div>
-    </div>
-    <div class="activity">
-      <div class="act-dot" style="background:#2d5a3d;"></div>
-      <div>
-        <div class="act-name">Winslow — dinner before the ferry</div>
-        <div class="act-meta">5 min walk from Bainbridge terminal · shops · waterfront · arrive early and eat well before boarding</div>
-      </div>
-    </div>
-    <a href="https://www.wsdot.wa.gov/ferries" target="_blank" class="activity">
-      <div class="act-dot" style="background:#4a3a7a;"></div>
-      <div>
-        <div class="act-name">Bainbridge Island → Seattle ferry</div>
-        <div class="act-meta">Washington State Ferries · target ~7:00 PM departure · 35 min crossing · arrive Seattle by water</div>
-      </div>
-    </a>
-    <div class="timing">
-      <span class="timing-item">Leave Forks 8:30–9:00 AM</span>
-      <div class="timing-sep"></div>
-      <span class="drive-pill">Arrive terminal 45–60 min early</span>
-      <div class="timing-sep"></div>
-      <span class="timing-item">Ferry ~7:00 PM</span>
-    </div>
-    <div class="note"><strong>Book your ferry spot:</strong> Reserve vehicle space in advance at wsdot.wa.gov — summer Saturday sailings fill up fast. Crossing is Bainbridge Island → Seattle Pier 52, ~35 min.</div>
   </div>
 
 </div>
 
 <footer>
-  Olympic Peninsula &nbsp;·&nbsp; August 2026 &nbsp;·&nbsp; Built with Claude
+  Olympic Peninsula &nbsp;·&nbsp; August 2026 &nbsp;·&nbsp; Photos by <a href="https://unsplash.com" target="_blank">Unsplash</a>
 </footer>
 
 <script>
 function show(n) {
-  document.querySelectorAll('.day-panel').forEach((p, i) => {
-    p.classList.toggle('active', i === n);
-  });
-  document.querySelectorAll('.nav-btn').forEach((b, i) => {
-    b.classList.toggle('active', i === n);
-  });
+  document.querySelectorAll('.day-panel').forEach((p,i) => p.classList.toggle('active', i===n));
+  document.querySelectorAll('.nav-btn').forEach((b,i) => b.classList.toggle('active', i===n));
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
